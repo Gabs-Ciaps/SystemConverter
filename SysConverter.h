@@ -6,27 +6,28 @@
 using namespace std;
 class SysConverter{
 private:
+    string result = "";
     int toDecimal(std::string& value, int baseSrc)
     {
     long long d=0;
     char c;
     for(int i=value.length()-1; i>=0;i--)
     {
-        if(letterToNumber(value[i])>=baseSrc)
+        if(letterToNumber(value[value.length()-i-1])>=baseSrc)
             throw std::invalid_argument("number does not match its base");
-        d+=(letterToNumber(value[i]))*static_cast<long long>(std::pow(baseSrc, i));
+        d+=(letterToNumber(value[value.length()-i-1]))*static_cast<long long>(std::pow(baseSrc, i));
     }
     return d;
-}
+    }
     std::string fromDecimal(long long value, int baseTo)
     {
-    string result = "";
+        string next;
     if (value == 0)
         return "0";
     else if (value < 0)
         return "error";
     else {
-        fromDecimal(value / baseTo, baseTo);
+        result = fromDecimal(value / baseTo, baseTo);
         if(value % baseTo > 9) {
             switch (value % baseTo)
             {
@@ -51,7 +52,7 @@ private:
             }    
         }
         else
-            result += value % baseTo;
+            result += to_string(value % baseTo);
     }
     return result;
 }
@@ -79,7 +80,7 @@ public:
         throw std::invalid_argument("base must be between 2 and 16");
     }
     long long decimalValue = toDecimal(value, baseSrc);
-    return fromDecimal(decimalValue, baseTo);
+    return fromDecimal(decimalValue, baseTo).erase(0,1);
 }
 };
 #endif
