@@ -8,39 +8,54 @@ int main() {
     while(choice != 4){
         cout << "1. Binary \n" << "2. Decimal \n" << "3. Hexadecimal\n" << "4. Exit \n";
         cin >> choice;
+        
+        int newBase = -1;
+        string value = "";
+
         switch (choice) {
         case 1 :
             //binary
-            int newBase;
+            
             cout << "To which base do you want to convert? \n";
             cout << "1. Decimal \n" << "2. Hexadecimal \n" << "3. Go Back\n";
             cin >> newBase;
             switch(newBase) {
                         case 1 :
                         //decimal
+                        cout << "Insert your number: \n";
+                        cin >> value;
+                        cout << convert(value, 2, 10);
                         break;
                         case 2 :
                         //hexadecimal
+                        cout << "Insert your number: \n";
+                        cin >> value;
+                        cout << convert(value, 2, 16);
                         break;
                         case 3 :
-                        break;
                         //go back
+                        break;
                         default :
                         cout << "Wrong number. Choose a correct one  \n";
             }
             break;
         case 2 :
             //decimal
-            newBase = -1;
             cout << "To which base do you want to convert? \n";
             cout << "1. Binary \n" << "2. Hexadecimal \n" << "3. Go Back\n";
             cin >> newBase;
             switch(newBase) {
                         case 1 :
-                        //Binary
+                        //binary
+                        cout << "Insert your number: \n";
+                        cin >> value;
+                        cout << convert(value, 10, 2);
                         break;
                         case 2 :
                         //hexadecimal
+                        cout << "Insert your number: \n";
+                        cin >> value;
+                        cout << convert(value, 10, 16);
                         break;
                         case 3 :
                         //go back
@@ -51,16 +66,21 @@ int main() {
             }
         case 3 :
             //hexadecimal
-            newBase = -1;
             cout << "To which base do you want to convert? \n";
             cout << "1. Binary \n" << "2. Decimal \n" << "3. Go Back\n";
             cin >> newBase;
             switch(newBase) {
                         case 1 :
                         //binary
+                        cout << "Insert your number: \n";
+                        cin >> value;
+                        cout << convert(value, 16, 2);
                         break;
                         case 2 :
                         //decimal
+                        cout << "Insert your number: \n";
+                        cin >> value;
+                        cout << convert(value, 16, 10);
                         break;
                         case 3 :
                         //go back
