@@ -1,6 +1,8 @@
 #include <iostream>
 #include "converter.h"
-
+using namespace std;
+//baseTo - base to be switched to
+//baseSrc - source base
 std::string SysConverter::convert(std::string& value, int baseSrc, int baseTo){
     if(baseSrc<2 || baseSrc>36 || baseTo<2 || baseTo>36)
     {
@@ -12,7 +14,6 @@ std::string SysConverter::convert(std::string& value, int baseSrc, int baseTo){
 std::string SysConverter::toDecimal(std::string& value, int baseSrc)
 {
     double d;
-    std::string s;
     char c;
     int n = 0
     for(int i=value.length(); i>=n;i--)
@@ -25,7 +26,39 @@ std::string SysConverter::toDecimal(std::string& value, int baseSrc)
     }
     return s
 }
-std::string Sysconverter::fromDecimal(std::string& value, int baseTo)
-{
-
+public string fromDecimal(long long value, int baseTo) {
+    string result = "";
+    if (value == 0)
+        return "0";
+    else if (value < 0)
+        return "error"
+    else {
+        fromDecimal(value / baseTo, baseTo);
+        if(value % baseTo > 9) {
+            switch (value % baseTo)
+            {
+            case 10:
+                result  += "A";
+                break;
+            case 11:
+                result  += "B";
+                break;
+            case 12:
+                result  += "C";
+                break;
+            case 13:
+                result  += "D";
+                break;
+            case 14:
+                result  += "E";
+                break;
+            case 15:
+                result  += "F";
+                break;
+            }    
+        }
+        else
+            result += value % baseTo;
+    }
+    return result;
 }
