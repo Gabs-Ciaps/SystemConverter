@@ -5,8 +5,9 @@
 
 class SysConverter{
 private:
-    std::string SysConverter::toDecimal(std::string& value, int baseSrc);
-    std::string Sysconverter::fromDecimal(std::string& value, int baseTo)
+    int toDecimal(std::string& value, int baseSrc);
+    std::string fromDecimal(std::string& value, int baseTo);
+    int letterToNumber(char l);
 public:
     std::string convert(double value, int baseSrc, int baseTo);
 };
