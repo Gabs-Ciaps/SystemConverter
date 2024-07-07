@@ -90,7 +90,7 @@ int main() {
             }
         case 4 :
             //exit
-            cout << "See you next time.";
+            cout << "See you next time. \n";
             break;
         default:
             cout << "Wrong number. Choose a correct one  \n";
