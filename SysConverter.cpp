@@ -74,7 +74,7 @@ string fromDecimal(long long value, int baseTo)
 }
 
 std::string convert(std::string& value, int baseSrc, int baseTo){
-    if(baseSrc>2 || baseSrc<16 || baseTo>2 || baseTo<16)
+    if(baseSrc<2 || baseSrc>16 || baseTo<2 || baseTo>16)
     {
         throw std::invalid_argument("base must be between 2 and 16");
     }
